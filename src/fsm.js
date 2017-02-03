@@ -3,30 +3,42 @@ class FSM {
      * Creates new FSM instance.
      * @param config
      */
-    constructor(config) {}
+    constructor(config) {
+  this.config = config;
+  this.state = config.initial;
+    }
 
     /**
      * Returns active state.
      * @returns {String}
      */
-    getState() {}
+    getState() {
+      return this.state;
+    }
 
     /**
      * Goes to specified state.
      * @param state
      */
-    changeState(state) {}
+    changeState(state) {
+this.state = state;
+
+    }
 
     /**
      * Changes state according to event transition rules.
      * @param event
      */
-    trigger(event) {}
+    trigger(event) {
+      this.state = this.config.states[this.state].transitions[event];
+    }
 
     /**
      * Resets FSM state to initial.
      */
-    reset() {}
+    reset() {
+      this.state = config.initial;
+    }
 
     /**
      * Returns an array of states for which there are specified event transition rules.
@@ -34,14 +46,26 @@ class FSM {
      * @param event
      * @returns {Array}
      */
-    getStates(event) {}
+    getStates(event) {
+      /*
+(anonymous) @ VM2335:1
+'busy' in student.config.states
+true*/
+if (event != undefined)
+{
+
+}
+    }
 
     /**
      * Goes back to previous state.
      * Returns false if undo is not available.
      * @returns {Boolean}
      */
-    undo() {}
+    undo() {
+
+
+    }
 
     /**
      * Goes redo to state.
@@ -53,8 +77,13 @@ class FSM {
     /**
      * Clears transition history
      */
-    clearHistory() {}
+    clearHistory() {
+
+    }
 }
+
+
+/** @Created by Uladzimir Halushka **/
 
 module.exports = FSM;
 
