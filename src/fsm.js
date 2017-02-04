@@ -24,29 +24,32 @@ class FSM {
      * @param state
      */
     changeState(state) {
-    if (state in this.config.states){
-  this.hist.push(this.state);
-  this.state = state;
-  }else {
-    try {
-    throw Error;
-     }
-     catch (e) {
 
-     }
-   }
+
+   if (state in this.config.states){
+    this.hist.push(this.state);
+    this.state = state;}else {
+
+
+
+    throw new Error;
 }
 
+}
     /**
      * Changes state according to event transition rules.
      * @param event
      */
-    trigger(event) {
-       this.chist.push(event);
-        this.hist.push(this.state);
-        this.state = this.config.states[this.state].transitions[event];
-
-    }
+     trigger(event) {
+       if (this.config.states[this.state].transitions[event] != undefined)
+       {
+        this.chist.push(event);
+         this.hist.push(this.state);
+         this.state = this.config.states[this.state].transitions[event];
+       }else {
+         throw new Error;
+       }
+     }
 
     /**
      * Resets FSM state to initial.
