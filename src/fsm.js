@@ -76,7 +76,7 @@ Object.keys(student.config.states)
 */
         this.getSt = [];
         this.cstat = [];
-        this.cstat = Object.keys(student.config.states);
+        this.cstat = Object.keys(this.config.states);
         this.counter = 0;
         for (var key in this.config.states) {
             this.counter++;
