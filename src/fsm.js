@@ -100,11 +100,12 @@ Object.keys(student.config.states)
      */
     undo() {
 
-        if (this.hist.length == 0) {
+        if (this.hist.length == 1) {
             return false;
 
         } else {
            this.state = this.hist.pop();
+           return true;
 
 
         }
